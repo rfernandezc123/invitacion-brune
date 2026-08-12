@@ -1,0 +1,8 @@
+Coloca aqui las tres fotos recortadas (PNG con fondo transparente):
+
+  brune-1.png   600 x 800   portada, izquierda
+  brune-2.png   600 x 800   portada, derecha
+  brune-3.png   600 x 800   seccion de confirmacion
+
+Mientras no existan, la pagina muestra un marcador gris en su lugar.
+No hay que tocar codigo: al subir el archivo con ese nombre, aparece solo.

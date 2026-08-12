@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Invitados · Brune 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fucsia:#F33569; --magenta:#FF0080; --lavanda:#DEB0F4;
+  --chicle:#DA7AAD; --tinta:#5B2338; --rojo:#E2463F;
+  --papel:#FFF8FB; --linea:#F2D8E4;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',system-ui,sans-serif;
+  background:linear-gradient(175deg,#FDEAF1,#FBE0E7 60%,#F7D3E0);
+  color:var(--tinta);
+  min-height:100svh;
+  padding:20px 16px 48px;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input{font:inherit;color:inherit}
+
+.caja{max-width:900px;margin-inline:auto}
+
+h1{
+  font-family:'Fredoka',sans-serif;font-weight:600;
+  font-size:clamp(24px,6vw,32px);color:var(--fucsia);
+  text-align:center;line-height:1.2;
+}
+.sub{text-align:center;font-size:13px;font-weight:300;color:#8A5570;margin-top:4px}
+
+/* ---- acceso ---- */
+.acceso{
+  max-width:340px;margin:14svh auto 0;padding:30px 26px;
+  background:var(--papel);border-radius:22px;
+  box-shadow:0 12px 34px rgba(150,70,110,.16);text-align:center;
+}
+.acceso h1{font-size:24px}
+.acceso p{margin:8px 0 22px;font-size:13px;font-weight:300;color:#8A5570}
+.acceso input{
+  width:100%;padding:14px;border:1.5px solid var(--linea);border-radius:14px;
+  background:#fff;text-align:center;font-size:22px;letter-spacing:.5em;
+  text-indent:.5em;font-weight:500;
+}
+.acceso input:focus{outline:none;border-color:var(--chicle);box-shadow:0 0 0 3px rgba(218,122,173,.18)}
+
+.btn{
+  width:100%;margin-top:14px;padding:14px;border-radius:14px;
+  background:linear-gradient(135deg,var(--fucsia),var(--magenta));
+  color:#fff;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;
+  box-shadow:0 7px 18px rgba(243,53,105,.32);
+  transition:transform .18s,box-shadow .18s,opacity .18s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+
+.error{
+  margin-top:14px;padding:11px 14px;border-radius:12px;
+  background:#FDE7E5;border:1px solid #F5C6C1;color:#A8342C;
+  font-size:13px;font-weight:400;line-height:1.5;
+}
+
+/* ---- panel ---- */
+.panel{display:none}
+.panel.activo{display:block}
+
+.cifras{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;
+}
+.cifra{
+  padding:16px 12px;background:var(--papel);border-radius:16px;text-align:center;
+  box-shadow:0 4px 14px rgba(150,70,110,.1);
+}
+.cifra b{
+  display:block;font-family:'Fredoka',sans-serif;font-weight:600;
+  font-size:clamp(26px,7vw,34px);line-height:1;color:var(--fucsia);
+}
+.cifra span{
+  display:block;margin-top:5px;font-size:9.5px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;color:#9B5F7C;
+}
+
+.barra{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.barra input{
+  flex:1;min-width:180px;padding:12px 15px;border:1.5px solid var(--linea);
+  border-radius:13px;background:#fff;font-size:15px;font-weight:300;
+}
+.barra input:focus{outline:none;border-color:var(--chicle)}
+.mini{
+  padding:12px 18px;border-radius:13px;background:var(--lavanda);
+  color:#5E2A6E;font-size:13px;font-weight:500;
+  transition:filter .18s;
+}
+.mini:hover{filter:brightness(.95)}
+
+.lista{margin-top:18px;display:grid;gap:10px}
+
+.fila{
+  padding:15px 17px;background:var(--papel);border-radius:16px;
+  box-shadow:0 3px 12px rgba(150,70,110,.09);
+  border-left:4px solid var(--lavanda);
+}
+.fila__cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fila__nombre{font-family:'Fredoka',sans-serif;font-weight:500;font-size:17px;line-height:1.25}
+.fila__num{font-size:11px;font-weight:500;color:var(--chicle);flex-shrink:0}
+.fila__meta{margin-top:7px;display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  padding:4px 10px;border-radius:99px;background:#F7E7F1;
+  font-size:11px;font-weight:400;color:#7B4062;
+}
+.tag--mas{background:#E4F4EA;color:#256B47}
+.fila__msg{
+  margin-top:9px;padding:9px 12px;border-radius:10px;background:#FDF2F7;
+  font-size:13px;font-weight:300;line-height:1.5;color:#7B4062;font-style:italic;
+}
+.fila__fecha{margin-top:8px;font-size:10.5px;font-weight:300;color:#B08A9C}
+
+.vacio{
+  padding:44px 20px;text-align:center;background:var(--papel);border-radius:18px;
+  font-size:14px;font-weight:300;color:#9B5F7C;
+}
+.cargando{text-align:center;padding:40px;font-size:14px;font-weight:300;color:#9B5F7C}
+
+.salir{
+  display:block;margin:26px auto 0;font-size:12px;font-weight:400;
+  color:#A56A86;text-decoration:underline;text-underline-offset:3px;
+}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="caja">
+
+  <!-- Acceso -->
+  <section class="acceso" id="acceso">
+    <h1>Lista de invitados</h1>
+    <p>Ingresa el PIN para ver quiénes confirmaron.</p>
+    <form id="form-pin">
+      <input type="password" id="pin" inputmode="numeric" autocomplete="off"
+             maxlength="10" placeholder="••••" aria-label="PIN de acceso">
+      <button type="submit" class="btn" id="btn-entrar">Entrar</button>
+    </form>
+    <div id="error-pin"></div>
+  </section>
+
+  <!-- Panel -->
+  <section class="panel" id="panel">
+    <h1>Lista de invitados</h1>
+    <p class="sub">Brune cumple 17 · 28 de agosto</p>
+
+    <div class="cifras">
+      <div class="cifra"><b id="n-confirmados">0</b><span>confirmados</span></div>
+      <div class="cifra"><b id="n-total">0</b><span>personas en total</span></div>
+      <div class="cifra"><b id="n-acomp">0</b><span>acompañantes</span></div>
+    </div>
+
+    <div class="barra">
+      <input type="search" id="buscar" placeholder="Buscar por nombre..." aria-label="Buscar invitado">
+      <button class="mini" id="btn-recargar" type="button">Actualizar</button>
+      <button class="mini" id="btn-csv" type="button">Descargar CSV</button>
+    </div>
+
+    <div class="lista" id="lista">
+      <div class="cargando">Cargando lista...</div>
+    </div>
+
+    <button class="salir" id="btn-salir" type="button">Cerrar sesión</button>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN — pega la MISMA URL que en index.html
+   ============================================================ */
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxLEG_W7xnal0raS2bkDVZMcdT74K6xX627iy5DwMcvKirMVnFhllMVhNofsUk-4is/exec';
+const CLAVE_PIN = 'brune17_pin';
+
+const $ = (s) => document.querySelector(s);
+let registros = [];
+
+/* ---- acceso ---- */
+async function entrar(pin, silencioso){
+  const btn = $('#btn-entrar');
+  if(!silencioso){ btn.disabled = true; btn.textContent = 'Verificando...'; }
+  $('#error-pin').innerHTML = '';
+
+  if(!ENDPOINT.startsWith('https://')){
+    $('#error-pin').innerHTML =
+      '<div class="error">Falta pegar la URL de Apps Script en <b>ENDPOINT</b>.</div>';
+    btn.disabled = false; btn.textContent = 'Entrar';
+    return false;
+  }
+
+  try{
+    const url = ENDPOINT + '?accion=lista&pin=' + encodeURIComponent(pin);
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if(!data.ok){
+      if(!silencioso){
+        $('#error-pin').innerHTML =
+          '<div class="error">' + escapar(data.error || 'PIN incorrecto') + '</div>';
+      }
+      sessionStorage.removeItem(CLAVE_PIN);
+      btn.disabled = false; btn.textContent = 'Entrar';
+      return false;
+    }
+
+    sessionStorage.setItem(CLAVE_PIN, pin);
+    $('#acceso').style.display = 'none';
+    $('#panel').classList.add('activo');
+    registros = data.registros || [];
+    pintar();
+    return true;
+
+  }catch(e){
+    $('#error-pin').innerHTML =
+      '<div class="error">No hay conexión con el servidor. Revisa tu internet.</div>';
+    btn.disabled = false; btn.textContent = 'Entrar';
+    return false;
+  }
+}
+
+$('#form-pin').addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  entrar($('#pin').value.trim(), false);
+});
+
+$('#btn-recargar').addEventListener('click', () => {
+  $('#lista').innerHTML = '<div class="cargando">Actualizando...</div>';
+  entrar(sessionStorage.getItem(CLAVE_PIN) || '', true);
+});
+
+$('#btn-salir').addEventListener('click', () => {
+  sessionStorage.removeItem(CLAVE_PIN);
+  location.reload();
+});
+
+$('#buscar').addEventListener('input', pintar);
+
+/* ---- render ---- */
+function escapar(t){
+  const d = document.createElement('div');
+  d.textContent = t == null ? '' : String(t);
+  return d.innerHTML;
+}
+
+function normalizar(t){
+  return String(t || '').normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+}
+
+function fechaBonita(iso){
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  return d.toLocaleString('es-PE',{
+    day:'numeric', month:'long', hour:'2-digit', minute:'2-digit'
+  });
+}
+
+function pintar(){
+  const acompanantes = registros.filter(r => r.acompanante === 'Si').length;
+  $('#n-confirmados').textContent = registros.length;
+  $('#n-acomp').textContent       = acompanantes;
+  $('#n-total').textContent       = registros.length + acompanantes;
+
+  const q = normalizar($('#buscar').value);
+  const visibles = q
+    ? registros.filter(r =>
+        normalizar(r.nombre).includes(q) ||
+        normalizar(r.nombreAcompanante).includes(q))
+    : registros;
+
+  if(!visibles.length){
+    $('#lista').innerHTML = '<div class="vacio">' +
+      (registros.length ? 'Nadie coincide con esa búsqueda.'
+                        : 'Todavía no hay confirmaciones.') + '</div>';
+    return;
+  }
+
+  $('#lista').innerHTML = visibles.map((r, i) => {
+    const tags = [];
+    if(r.regalo) tags.push('<span class="tag">🎁 ' + escapar(r.regalo) + '</span>');
+    if(r.acompanante === 'Si'){
+      tags.push('<span class="tag tag--mas">+1 ' +
+        escapar(r.nombreAcompanante || 'sin nombre') + '</span>');
+    }
+
+    return '<article class="fila">' +
+      '<div class="fila__cab">' +
+        '<h2 class="fila__nombre">' + escapar(r.nombre) + '</h2>' +
+        '<span class="fila__num">#' + (i + 1) + '</span>' +
+      '</div>' +
+      (tags.length ? '<div class="fila__meta">' + tags.join('') + '</div>' : '') +
+      (r.mensaje ? '<p class="fila__msg">' + escapar(r.mensaje) + '</p>' : '') +
+      '<p class="fila__fecha">' + escapar(fechaBonita(r.fecha)) + '</p>' +
+    '</article>';
+  }).join('');
+}
+
+/* ---- exportar ---- */
+$('#btn-csv').addEventListener('click', () => {
+  const cab = ['Fecha','Nombre','Acompanante','Nombre acompanante','Regalo','Mensaje'];
+  const filas = registros.map(r => [
+    fechaBonita(r.fecha), r.nombre, r.acompanante,
+    r.nombreAcompanante, r.regalo, r.mensaje
+  ]);
+
+  const csv = [cab].concat(filas)
+    .map(f => f.map(c => '"' + String(c || '').replace(/"/g,'""') + '"').join(','))
+    .join('\r\n');
+
+  const blob = new Blob(['\uFEFF' + csv], { type:'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'invitados-brune-17.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+/* ---- sesión recordada ---- */
+(function(){
+  const guardado = sessionStorage.getItem(CLAVE_PIN);
+  if(guardado) entrar(guardado, true);
+})();
+</script>
+</body>
+</html>

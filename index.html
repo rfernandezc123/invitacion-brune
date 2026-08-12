@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F78B7C">
+<title>Brune cumple 17 · 28 de agosto</title>
+
+<meta property="og:title" content="Brune cumple 17">
+<meta property="og:description" content="28 de agosto. Confirma tu asistencia aquí.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CONFIGURACIÓN VISUAL
+   ============================================================ */
+:root{
+  --coral:#F78B7C;
+  --durazno:#F9B098;
+  --rosa-coral:#EC7377;
+  --rosa-pastel:#FBE0E7;
+  --magenta:#FF0080;
+  --fucsia:#F33569;
+  --amarillo:#FFC800;
+  --rojo:#E2463F;
+  --lavanda:#DEB0F4;
+  --lavanda-claro:#EFCEF7;
+  --chicle:#DA7AAD;
+  --crema:#FCF9FB;
+  --tinta:#5B2338;
+
+  --display:'Fredoka',system-ui,sans-serif;
+  --script:'Caveat',cursive;
+  --util:'Poppins',system-ui,sans-serif;
+
+  --ancho:480px;
+  --sombra-sticker:0 6px 18px rgba(120,40,70,.22);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+body{
+  font-family:var(--util);
+  color:var(--tinta);
+  background:#1a0d14;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,select,textarea{font:inherit;color:inherit}
+
+/* ============================================================
+   ESTRUCTURA
+   ============================================================ */
+.lienzo{
+  max-width:var(--ancho);
+  margin-inline:auto;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 80px rgba(0,0,0,.5);
+}
+
+.escena{
+  position:relative;
+  min-height:100svh;
+  padding:clamp(28px,7vw,44px) clamp(20px,5.5vw,32px);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* ============================================================
+   FONDOS
+   ============================================================ */
+.escena--hero{
+  background:
+    radial-gradient(120% 70% at 15% 0%,  #FBC69F 0%, transparent 55%),
+    radial-gradient(100% 60% at 90% 22%, #F6A0A6 0%, transparent 60%),
+    radial-gradient(140% 80% at 50% 105%,#F2B7A8 0%, transparent 62%),
+    linear-gradient(168deg,#F9B098 0%,#F78B7C 48%,#EF8C86 100%);
+}
+
+.escena--rsvp{
+  background:
+    radial-gradient(90% 55% at 20% 8%,  #FBC28F 0%, transparent 58%),
+    radial-gradient(85% 50% at 88% 42%, #F6839B 0%, transparent 55%),
+    linear-gradient(158deg,#F9B098 0%,#F3A075 34%,#EC7377 100%);
+}
+
+.escena--cierre{
+  background:linear-gradient(180deg,#FDEAF0 0%,#FBE0E7 60%,#F8D2DE 100%);
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* textura de acuarela / brillo */
+.escena--hero::before,
+.escena--rsvp::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.5;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.5) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 78% 12%, rgba(255,240,200,.6) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 34% 62%, rgba(255,255,255,.4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 74%, rgba(255,235,190,.5) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 58% 34%, rgba(255,255,255,.35) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 22% 88%, rgba(255,225,180,.5) 0 1.5px, transparent 2px);
+  background-size:180px 180px,240px 240px,150px 150px,200px 200px,170px 170px,210px 210px;
+  animation:brillo 9s ease-in-out infinite alternate;
+}
+@keyframes brillo{from{opacity:.28}to{opacity:.6}}
+
+/* ============================================================
+   ADORNOS FLOTANTES
+   ============================================================ */
+.adorno{position:absolute;z-index:-1;pointer-events:none;will-change:transform}
+.adorno--flor1{top:-3%;left:-14%;width:56%;animation:flotar 11s ease-in-out infinite}
+.adorno--flor2{top:26%;right:-20%;width:52%;animation:flotar 13s ease-in-out infinite reverse}
+.adorno--flor3{bottom:-6%;left:-16%;width:58%;animation:flotar 15s ease-in-out infinite}
+.adorno--flor4{bottom:4%;right:-14%;width:44%;animation:flotar 12s ease-in-out infinite reverse}
+
+@keyframes flotar{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+  50%{transform:translate3d(0,-16px,0) rotate(5deg)}
+}
+
+/* bola de disco */
+.disco{
+  position:absolute;
+  top:0;right:12%;
+  width:78px;
+  z-index:0;
+  animation:colgar 5.5s ease-in-out infinite;
+  transform-origin:top center;
+}
+.disco__cuerda{
+  width:2px;height:38px;margin-inline:auto;
+  background:linear-gradient(#fff9,#fff3);
+}
+.disco__bola{
+  width:78px;height:78px;border-radius:50%;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(0,0,0,.22) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg,  rgba(0,0,0,.22) 0 1px, transparent 1px 10px),
+    radial-gradient(circle at 32% 28%, #fff 0%, #F5B6D8 26%, #C77CC4 52%, #8E5AA8 78%, #5E3775 100%);
+  box-shadow:0 0 26px rgba(255,190,230,.7), inset -8px -8px 20px rgba(0,0,0,.28);
+  animation:girar 7s linear infinite;
+}
+@keyframes colgar{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes girar{
+  0%,100%{background-position:0 0,0 0,0 0}
+  50%{background-position:20px 0,20px 0,0 0}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero__marco{
+  position:relative;
+  z-index:2;
+  margin-top:auto;
+  margin-bottom:auto;
+  text-align:center;
+}
+
+.hero__edad{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(88px,30vw,150px);
+  line-height:.82;
+  letter-spacing:-.04em;
+  background:linear-gradient(165deg,#FFF 0%,#FFD9E8 28%,#F58FC0 55%,#D8629F 78%,#FFF0F7 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 5px 12px rgba(150,50,100,.35));
+  margin-bottom:-.04em;
+}
+
+.hero__nombre{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(52px,17vw,86px);
+  line-height:1;
+  letter-spacing:.02em;
+  background:linear-gradient(100deg,#FF0080 0%,#FFC800 22%,#FF4FA3 44%,#DEB0F4 62%,#FF0080 84%,#FFC800 100%);
+  background-size:280% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 3px 0 rgba(255,255,255,.85)) drop-shadow(0 7px 14px rgba(140,30,90,.3));
+  animation:destello 7s linear infinite;
+}
+@keyframes destello{to{background-position:280% 0}}
+
+.hero__lema{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4em;
+  flex-wrap:wrap;
+  margin-top:6px;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(21px,6.4vw,30px);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.hero__lema span:first-child{color:var(--fucsia);text-shadow:0 2px 0 #fff}
+.hero__lema span:last-child{color:var(--amarillo);text-shadow:0 2px 0 #fff,0 4px 8px rgba(160,90,0,.25)}
+
+.hero__fecha{margin-top:clamp(20px,6vw,30px)}
+.hero__fecha em{
+  display:block;
+  font-family:var(--script);
+  font-style:normal;
+  font-weight:700;
+  font-size:clamp(26px,7.5vw,34px);
+  color:var(--rojo);
+  transform:rotate(-4deg);
+}
+.hero__dia{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(56px,19vw,92px);
+  line-height:.9;
+  color:var(--rojo);
+  text-shadow:0 3px 0 rgba(255,255,255,.7);
+}
+.hero__mes{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(22px,6.6vw,32px);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--rojo);
+  opacity:.92;
+}
+
+/* fotos recortadas */
+.tira{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:clamp(6px,2.5vw,14px);
+  margin-top:auto;
+}
+.foto{
+  position:relative;
+  width:38%;
+  max-width:150px;
+  filter:drop-shadow(0 8px 14px rgba(120,40,70,.35));
+}
+.foto img{width:100%;height:auto;display:none}
+.foto.con-foto img{display:block}
+.foto.con-foto .marcador{display:none}
+.foto--a{transform:rotate(-5deg)}
+.foto--b{transform:rotate(4deg) translateY(-8px)}
+
+.marcador{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:14px 10px;aspect-ratio:3/4;border-radius:12px;
+  background:#CBCBD1;border:1px solid #B4B4BB;color:#6E6E77;text-align:center;
+}
+.marcador svg{width:30px;height:30px;opacity:.62}
+.marcador b{font-size:10px;font-weight:500;word-break:break-all;line-height:1.35}
+.marcador span{
+  font-size:9.5px;font-weight:400;letter-spacing:.1em;
+  padding:2px 7px;border-radius:99px;background:rgba(255,255,255,.65);
+}
+
+/* indicador de scroll */
+.baja{
+  position:relative;
+  z-index:2;
+  margin-top:18px;
+  text-align:center;
+  font-family:var(--util);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.92);
+  text-shadow:0 1px 4px rgba(150,60,60,.4);
+}
+.baja::after{
+  content:'';
+  display:block;
+  width:1px;height:26px;
+  margin:8px auto 0;
+  background:linear-gradient(rgba(255,255,255,.9),transparent);
+  animation:bajar 1.9s ease-in-out infinite;
+}
+@keyframes bajar{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ============================================================
+   RSVP
+   ============================================================ */
+.arco{
+  position:relative;
+  z-index:2;
+  width:100%;
+  overflow:visible;
+  filter:drop-shadow(0 3px 7px rgba(150,50,60,.3));
+}
+.arco text{
+  font-family:var(--display);
+  font-weight:600;
+  fill:#fff;
+}
+
+.rsvp__mano{
+  display:inline-block;
+  font-size:30px;
+  line-height:1;
+  animation:apuntar 1.6s ease-in-out infinite;
+}
+@keyframes apuntar{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+.centro{position:relative;z-index:2;text-align:center}
+
+/* botón burbuja */
+.burbuja{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:104px;height:104px;
+  margin:6px auto 0;
+  border-radius:50%;
+  background:linear-gradient(150deg,#EDCBFA,#D9A5F2);
+  box-shadow:0 10px 26px rgba(120,40,110,.34), inset 0 -5px 12px rgba(150,80,180,.3);
+  transition:transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
+}
+.burbuja::before{
+  content:'';
+  position:absolute;inset:-9px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.6);
+  animation:pulso 2.4s ease-out infinite;
+}
+@keyframes pulso{
+  0%{transform:scale(.94);opacity:.85}
+  70%{transform:scale(1.22);opacity:0}
+  100%{opacity:0}
+}
+.burbuja:hover,.burbuja:focus-visible{transform:scale(1.07)}
+.burbuja:active{transform:scale(.95)}
+.burbuja:focus-visible{outline:3px solid #fff;outline-offset:5px}
+
+.burbuja__puntos{display:flex;gap:7px}
+.burbuja__puntos i{
+  width:11px;height:11px;border-radius:50%;
+  background:#8B4FA8;
+  animation:latir 1.4s ease-in-out infinite;
+}
+.burbuja__puntos i:nth-child(2){animation-delay:.18s}
+.burbuja__puntos i:nth-child(3){animation-delay:.36s}
+@keyframes latir{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-5px)}}
+
+.burbuja--listo{background:linear-gradient(150deg,#B6E8C9,#7FCFA3)}
+.burbuja--listo .burbuja__puntos{display:none}
+.burbuja--listo::after{
+  content:'✓';
+  font-size:46px;
+  font-weight:700;
+  color:#1F6B44;
+  line-height:1;
+}
+.burbuja--listo::before{animation:none;opacity:0}
+
+.burbuja__ayuda{
+  margin-top:12px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.95);
+  text-shadow:0 1px 4px rgba(150,60,60,.45);
+}
+
+/* caja de regalos */
+.regalos{
+  position:relative;
+  z-index:2;
+  margin:6px auto 0;
+  max-width:340px;
+  padding:20px 22px;
+  border-radius:22px;
+  background:rgba(232,190,248,.88);
+  box-shadow:var(--sombra-sticker);
+  backdrop-filter:blur(2px);
+}
+.regalos ul{
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 14px;
+  font-family:var(--script);
+  font-weight:700;
+  font-size:clamp(19px,5.3vw,23px);
+  color:#5E2A6E;
+  line-height:1.25;
+}
+.regalos li:nth-child(2),.regalos li:nth-child(3){transform:rotate(-2deg)}
+.regalos li:nth-child(4){grid-column:1/-1;font-size:clamp(17px,4.6vw,20px);opacity:.9}
+
+/* countdown */
+.cuenta{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:center;
+  gap:clamp(8px,3.5vw,18px);
+  margin-top:clamp(20px,6vw,30px);
+}
+.cuenta__bloque{min-width:52px;text-align:center}
+.cuenta__num{
+  display:block;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(32px,10vw,44px);
+  line-height:1;
+  color:#fff;
+  text-shadow:0 2px 10px rgba(150,50,60,.4);
+  font-variant-numeric:tabular-nums;
+}
+.cuenta__bloque:last-child .cuenta__num{color:#FFE0EA}
+.cuenta__lbl{
+  display:block;
+  margin-top:6px;
+  font-size:9.5px;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+}
+
+.nota{
+  position:relative;
+  z-index:2;
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:clamp(18px,5vw,26px) auto 0;
+  padding:9px 18px;
+  border-radius:999px;
+  background:rgba(232,190,248,.92);
+  box-shadow:0 4px 12px rgba(120,40,90,.22);
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  text-align:center;
+  color:#5E2A6E;
+  transform:rotate(-1.5deg);
+}
+
+.foto--saluda{
+  position:absolute;
+  right:-4%;bottom:2%;
+  width:34%;max-width:130px;
+  z-index:1;
+  transform:rotate(3deg);
+  filter:drop-shadow(0 8px 14px rgba(120,40,70,.3));
+}
+
+/* ============================================================
+   CIERRE
+   ============================================================ */
+.sticker{
+  display:inline-block;
+  padding:16px 26px;
+  border-radius:18px;
+  background:var(--lavanda-claro);
+  box-shadow:var(--sombra-sticker);
+  transform:rotate(-2.5deg);
+  animation:mecer 4.5s ease-in-out infinite;
+}
+@keyframes mecer{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2deg)}}
+
+.sticker p{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(19px,5.6vw,25px);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 2px 5px rgba(140,70,170,.5);
+  line-height:1.45;
+}
+.sticker p b{font-weight:500;color:var(--rojo)}
+
+.foca{
+  width:min(72%,270px);
+  margin:clamp(20px,6vw,32px) auto 0;
+  filter:drop-shadow(0 14px 22px rgba(180,110,140,.3));
+  animation:respirar 4.5s ease-in-out infinite;
+}
+@keyframes respirar{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1.5deg)}}
+
+.firma{
+  margin-top:clamp(24px,7vw,36px);
+  font-family:var(--script);
+  font-weight:700;
+  font-size:22px;
+  color:var(--chicle);
+  transform:rotate(-2deg);
+}
+.corazon{display:inline-block;animation:latido 1.5s ease-in-out infinite}
+@keyframes latido{0%,100%{transform:scale(1)}25%{transform:scale(1.18)}40%{transform:scale(1)}}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.velo{
+  position:fixed;
+  inset:0;
+  z-index:60;
+  display:grid;
+  place-items:end center;
+  background:rgba(70,20,45,.55);
+  backdrop-filter:blur(5px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+  overscroll-behavior:contain;
+}
+.velo.abierto{opacity:1;visibility:visible}
+
+.hoja{
+  width:100%;
+  max-width:var(--ancho);
+  max-height:92svh;
+  overflow-y:auto;
+  padding:26px clamp(20px,5.5vw,30px) calc(26px + env(safe-area-inset-bottom));
+  border-radius:26px 26px 0 0;
+  background:linear-gradient(178deg,#FFF6F9 0%,#FDEAF1 100%);
+  transform:translateY(100%);
+  transition:transform .38s cubic-bezier(.32,.72,0,1);
+  -webkit-overflow-scrolling:touch;
+}
+.velo.abierto .hoja{transform:translateY(0)}
+
+.hoja__asa{
+  width:42px;height:4px;
+  margin:0 auto 20px;
+  border-radius:99px;
+  background:rgba(180,110,140,.35);
+}
+
+.hoja__titulo{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:26px;
+  line-height:1.2;
+  color:var(--fucsia);
+  text-align:center;
+}
+.hoja__bajada{
+  margin-top:6px;
+  text-align:center;
+  font-size:13px;
+  font-weight:300;
+  color:#8A5570;
+}
+
+.campo{margin-top:18px}
+.campo > label{
+  display:block;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#9B5F7C;
+}
+.campo input[type=text],
+.campo select,
+.campo textarea{
+  width:100%;
+  padding:13px 15px;
+  border:1.5px solid #F2CEDC;
+  border-radius:14px;
+  background:#fff;
+  font-size:16px;
+  font-weight:400;
+  color:var(--tinta);
+  transition:border-color .2s, box-shadow .2s;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.campo select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C77C9B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 15px center;
+  padding-right:40px;
+}
+.campo textarea{min-height:78px;resize:vertical;line-height:1.5}
+.campo input:focus,.campo select:focus,.campo textarea:focus{
+  outline:none;
+  border-color:var(--chicle);
+  box-shadow:0 0 0 3px rgba(218,122,173,.18);
+}
+.campo input[aria-invalid=true]{border-color:var(--rojo)}
+
+.check{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-top:18px;
+  padding:13px 15px;
+  border:1.5px solid #F2CEDC;
+  border-radius:14px;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:400;
+}
+.check input{
+  width:20px;height:20px;
+  accent-color:var(--chicle);
+  flex-shrink:0;
+  cursor:pointer;
+}
+
+.oculto{display:none}
+
+.enviar{
+  width:100%;
+  margin-top:24px;
+  padding:16px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--fucsia),var(--magenta));
+  box-shadow:0 8px 20px rgba(243,53,105,.35);
+  color:#fff;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:17px;
+  letter-spacing:.02em;
+  transition:transform .18s, box-shadow .18s, opacity .18s;
+}
+.enviar:hover{transform:translateY(-2px);box-shadow:0 11px 26px rgba(243,53,105,.42)}
+.enviar:active{transform:translateY(0)}
+.enviar:disabled{opacity:.6;cursor:wait;transform:none}
+.enviar:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+
+.cerrar{
+  display:block;
+  width:100%;
+  margin-top:12px;
+  padding:11px;
+  font-size:13px;
+  font-weight:400;
+  color:#A56A86;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.aviso{
+  margin-top:16px;
+  padding:13px 15px;
+  border-radius:13px;
+  font-size:13px;
+  font-weight:400;
+  line-height:1.5;
+}
+.aviso--error{background:#FDE7E5;color:#A8342C;border:1px solid #F5C6C1}
+.aviso--info{background:#F0E4F8;color:#6B3580;border:1px solid #DFC7EC}
+
+/* pantalla de éxito */
+.listo{text-align:center;padding:12px 0 4px}
+.listo__icono{
+  width:78px;height:78px;
+  margin:0 auto 18px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:linear-gradient(140deg,#B6E8C9,#7FCFA3);
+  font-size:38px;
+  color:#1F6B44;
+  animation:aparecer .5s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes aparecer{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+.listo h3{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:25px;
+  color:var(--fucsia);
+  line-height:1.25;
+}
+.listo p{
+  margin-top:10px;
+  font-size:14px;
+  font-weight:300;
+  line-height:1.6;
+  color:#8A5570;
+}
+.listo p b{font-weight:500;color:var(--tinta)}
+
+/* confeti */
+.confeti{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden}
+.confeti i{
+  position:absolute;
+  top:-14px;
+  width:9px;height:14px;
+  border-radius:2px;
+  animation:caer linear forwards;
+}
+@keyframes caer{
+  to{transform:translateY(104svh) rotate(760deg);opacity:0}
+}
+
+/* ============================================================
+   REVELADO POR SCROLL
+   ============================================================ */
+.revela{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1)}
+.revela.visible{opacity:1;transform:none}
+.revela[data-tardanza="1"]{transition-delay:.12s}
+.revela[data-tardanza="2"]{transition-delay:.24s}
+.revela[data-tardanza="3"]{transition-delay:.36s}
+.revela[data-tardanza="4"]{transition-delay:.48s}
+
+/* ============================================================
+   ACCESIBILIDAD Y PANTALLAS GRANDES
+   ============================================================ */
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+
+.solo-lectores{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+@media (min-width:900px){
+  body{background:radial-gradient(circle at 50% 0%,#3A1B2A,#16090F)}
+  .lienzo{margin-block:32px;border-radius:30px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .revela{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<main class="lienzo">
+
+  <!-- ══════════════ ESCENA 1 · PORTADA ══════════════ -->
+  <section class="escena escena--hero" aria-labelledby="t-hero">
+    <svg class="adorno adorno--flor1" viewBox="0 0 200 200" aria-hidden="true">
+      <g fill="#E8367F" opacity=".78">
+        <ellipse cx="100" cy="46" rx="34" ry="46"/>
+        <ellipse cx="151" cy="82" rx="34" ry="46" transform="rotate(72 151 82)"/>
+        <ellipse cx="131" cy="145" rx="34" ry="46" transform="rotate(144 131 145)"/>
+        <ellipse cx="69" cy="145" rx="34" ry="46" transform="rotate(216 69 145)"/>
+        <ellipse cx="49" cy="82" rx="34" ry="46" transform="rotate(288 49 82)"/>
+      </g>
+      <circle cx="100" cy="100" r="19" fill="#FFC800" opacity=".9"/>
+      <circle cx="100" cy="100" r="9" fill="#FF7FB0"/>
+    </svg>
+
+    <svg class="adorno adorno--flor2" viewBox="0 0 200 200" aria-hidden="true">
+      <g fill="#FFB347" opacity=".62">
+        <ellipse cx="100" cy="50" rx="30" ry="42"/>
+        <ellipse cx="148" cy="84" rx="30" ry="42" transform="rotate(72 148 84)"/>
+        <ellipse cx="129" cy="142" rx="30" ry="42" transform="rotate(144 129 142)"/>
+        <ellipse cx="71" cy="142" rx="30" ry="42" transform="rotate(216 71 142)"/>
+        <ellipse cx="52" cy="84" rx="30" ry="42" transform="rotate(288 52 84)"/>
+      </g>
+      <circle cx="100" cy="100" r="17" fill="#F5426B" opacity=".85"/>
+    </svg>
+
+    <svg class="adorno adorno--flor3" viewBox="0 0 200 200" aria-hidden="true">
+      <g fill="#F06AA6" opacity=".55">
+        <ellipse cx="100" cy="48" rx="33" ry="45"/>
+        <ellipse cx="150" cy="83" rx="33" ry="45" transform="rotate(72 150 83)"/>
+        <ellipse cx="130" cy="144" rx="33" ry="45" transform="rotate(144 130 144)"/>
+        <ellipse cx="70" cy="144" rx="33" ry="45" transform="rotate(216 70 144)"/>
+        <ellipse cx="50" cy="83" rx="33" ry="45" transform="rotate(288 50 83)"/>
+      </g>
+      <circle cx="100" cy="100" r="18" fill="#FFD166" opacity=".9"/>
+    </svg>
+
+    <div class="disco" aria-hidden="true">
+      <div class="disco__cuerda"></div>
+      <div class="disco__bola"></div>
+    </div>
+
+    <div class="hero__marco">
+      <p class="hero__edad revela">17</p>
+      <h1 class="hero__nombre revela" data-tardanza="1" id="t-hero">Brune</h1>
+      <p class="hero__lema revela" data-tardanza="2">
+        <span>Birthday</span><span>Party</span>
+      </p>
+      <div class="hero__fecha revela" data-tardanza="3">
+        <em>date:</em>
+        <span class="hero__dia">28</span>
+        <span class="hero__mes">agosto</span>
+      </div>
+    </div>
+
+    <div class="tira revela" data-tardanza="4">
+      <figure class="foto foto--a">
+        <img src="assets/brune-1.png" alt="Brune sonriendo">
+        <div class="marcador" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M3 16l5-4.5 4 3.5 3-2.5 6 5.5" stroke-linejoin="round"/>
+          </svg>
+          <b>brune-1.png</b>
+          <span>600 &times; 800</span>
+        </div>
+      </figure>
+      <figure class="foto foto--b">
+        <img src="assets/brune-2.png" alt="Brune de bebé, en brazos">
+        <div class="marcador" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M3 16l5-4.5 4 3.5 3-2.5 6 5.5" stroke-linejoin="round"/>
+          </svg>
+          <b>brune-2.png</b>
+          <span>600 &times; 800</span>
+        </div>
+      </figure>
+    </div>
+
+    <p class="baja">desliza</p>
+  </section>
+
+  <!-- ══════════════ ESCENA 2 · CONFIRMACIÓN ══════════════ -->
+  <section class="escena escena--rsvp" aria-labelledby="t-rsvp">
+    <svg class="adorno adorno--flor4" viewBox="0 0 200 200" aria-hidden="true">
+      <g fill="#FF8FB8" opacity=".5">
+        <ellipse cx="100" cy="50" rx="31" ry="43"/>
+        <ellipse cx="149" cy="84" rx="31" ry="43" transform="rotate(72 149 84)"/>
+        <ellipse cx="130" cy="143" rx="31" ry="43" transform="rotate(144 130 143)"/>
+        <ellipse cx="70" cy="143" rx="31" ry="43" transform="rotate(216 70 143)"/>
+        <ellipse cx="51" cy="84" rx="31" ry="43" transform="rotate(288 51 84)"/>
+      </g>
+    </svg>
+
+    <div class="centro revela" style="margin-top:auto">
+      <h2 id="t-rsvp" class="solo-lectores">Confirma tu asistencia</h2>
+      <svg class="arco" viewBox="0 0 340 96" aria-hidden="true">
+        <path id="curva-a" d="M14,74 Q170,6 326,74" fill="none"/>
+        <path id="curva-b" d="M52,94 Q170,44 288,94" fill="none"/>
+        <text font-size="26" text-anchor="middle">
+          <textPath href="#curva-a" startOffset="50%">Confirma tu asistencia</textPath>
+        </text>
+        <text font-size="26" text-anchor="middle">
+          <textPath href="#curva-b" startOffset="50%">Aquí</textPath>
+        </text>
+      </svg>
+      <span class="rsvp__mano" aria-hidden="true">👇</span>
+
+      <button class="burbuja" id="btn-rsvp" type="button" aria-haspopup="dialog">
+        <span class="solo-lectores">Confirmar mi asistencia</span>
+        <span class="burbuja__puntos" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+      <p class="burbuja__ayuda" id="btn-ayuda">tócame</p>
+    </div>
+
+    <div class="centro revela" data-tardanza="1" style="margin-top:clamp(26px,7vw,40px)">
+      <h2 class="solo-lectores">Regalos</h2>
+      <svg class="arco" viewBox="0 0 340 62" aria-hidden="true">
+        <path id="curva-c" d="M16,50 Q170,2 324,50" fill="none"/>
+        <text font-size="25" text-anchor="middle">
+          <textPath href="#curva-c" startOffset="50%">Regalos (Obligatorio)</textPath>
+        </text>
+      </svg>
+
+      <div class="regalos">
+        <ul>
+          <li>Perfumes</li>
+          <li>maquillaje</li>
+          <li>Cremitas</li>
+          <li>Things about crepusculo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="revela" data-tardanza="2" style="margin-top:auto">
+      <h2 class="solo-lectores">Cuenta regresiva</h2>
+      <div class="cuenta" id="cuenta" role="timer" aria-live="off">
+        <div class="cuenta__bloque"><span class="cuenta__num" id="c-dias">--</span><span class="cuenta__lbl">días</span></div>
+        <div class="cuenta__bloque"><span class="cuenta__num" id="c-horas">--</span><span class="cuenta__lbl">horas</span></div>
+        <div class="cuenta__bloque"><span class="cuenta__num" id="c-min">--</span><span class="cuenta__lbl">min</span></div>
+        <div class="cuenta__bloque"><span class="cuenta__num" id="c-seg">--</span><span class="cuenta__lbl">seg</span></div>
+      </div>
+      <p class="nota">En realidad mi cumpleaños es el 31 de agosto</p>
+    </div>
+
+    <figure class="foto foto--saluda">
+      <img src="assets/brune-3.png" alt="Brune de niña, en la playa">
+        <div class="marcador" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M3 16l5-4.5 4 3.5 3-2.5 6 5.5" stroke-linejoin="round"/>
+          </svg>
+          <b>brune-3.png</b>
+          <span>600 &times; 800</span>
+        </div>
+    </figure>
+  </section>
+
+  <!-- ══════════════ ESCENA 3 · CIERRE ══════════════ -->
+  <section class="escena escena--cierre" aria-labelledby="t-cierre">
+    <div class="sticker revela">
+      <h2 id="t-cierre">
+        <span class="solo-lectores">No faltes, puros íntimes</span>
+      </h2>
+      <p aria-hidden="true">No faltes <b>!</b><br>Puros íntimes</p>
+    </div>
+
+    <svg class="foca revela" data-tardanza="1" viewBox="0 0 320 350" role="img" aria-label="Una foca abrazando un peluche de corazón">
+      <ellipse cx="160" cy="332" rx="104" ry="13" fill="#E9B9CC" opacity=".55"/>
+
+      <path d="M160 34 C218 34 236 78 236 118 C236 141 230 160 221 172
+               C245 194 258 230 258 262 C258 306 218 330 160 330
+               C102 330 62 306 62 262 C62 230 75 194 99 172
+               C90 160 84 141 84 118 C84 78 102 34 160 34 Z"
+            fill="#AEB4BA"/>
+
+      <path d="M160 34 C124 34 106 52 95 78 C112 60 134 52 160 52
+               C186 52 208 60 225 78 C214 52 196 34 160 34 Z"
+            fill="#C3C8CD" opacity=".85"/>
+
+      <path d="M258 262 C258 306 218 330 160 330 C140 330 122 327 107 320
+               C136 322 176 320 204 304 C236 286 246 258 240 224
+               C252 236 258 248 258 262 Z"
+            fill="#969CA3" opacity=".55"/>
+
+      <g fill="#8B9299" opacity=".5">
+        <ellipse cx="108" cy="196" rx="7" ry="5"/>
+        <ellipse cx="212" cy="200" rx="6" ry="4.5"/>
+        <ellipse cx="132" cy="222" rx="5" ry="3.5"/>
+        <ellipse cx="196" cy="168" rx="5.5" ry="4"/>
+        <ellipse cx="96" cy="234" rx="5" ry="3.5"/>
+        <ellipse cx="228" cy="232" rx="5.5" ry="4"/>
+        <ellipse cx="164" cy="188" rx="4.5" ry="3"/>
+      </g>
+
+      <ellipse cx="160" cy="150" rx="46" ry="31" fill="#CBD0D5"/>
+
+      <g fill="#232830">
+        <ellipse cx="128" cy="116" rx="14" ry="15"/>
+        <ellipse cx="192" cy="116" rx="14" ry="15"/>
+      </g>
+      <g fill="#fff" opacity=".95">
+        <circle cx="133" cy="110" r="4.6"/>
+        <circle cx="197" cy="110" r="4.6"/>
+        <circle cx="124" cy="122" r="2.2"/>
+        <circle cx="188" cy="122" r="2.2"/>
+      </g>
+
+      <path d="M148 141 C148 134 172 134 172 141 C172 150 164 157 160 157
+               C156 157 148 150 148 141 Z" fill="#4A5058"/>
+      <path d="M160 157 L160 168" stroke="#4A5058" stroke-width="3.4" stroke-linecap="round"/>
+      <path d="M160 168 C152 176 142 174 138 168" stroke="#4A5058" stroke-width="3.4"
+            stroke-linecap="round" fill="none"/>
+      <path d="M160 168 C168 176 178 174 182 168" stroke="#4A5058" stroke-width="3.4"
+            stroke-linecap="round" fill="none"/>
+
+      <g stroke="#8B9299" stroke-width="2" stroke-linecap="round" opacity=".8">
+        <path d="M116 152 L74 143"/>
+        <path d="M116 160 L76 162"/>
+        <path d="M117 168 L79 180"/>
+        <path d="M204 152 L246 143"/>
+        <path d="M204 160 L244 162"/>
+        <path d="M203 168 L241 180"/>
+      </g>
+
+      <path d="M160 322 C160 322 78 268 78 219 C78 190 100 175 124 175
+               C143 175 155 187 160 199 C165 187 177 175 196 175
+               C220 175 242 190 242 219 C242 268 160 322 160 322 Z"
+            fill="#F2A0C0"/>
+      <path d="M160 322 C160 322 78 268 78 219 C78 190 100 175 124 175
+               C136 175 146 180 152 189 C130 190 112 204 112 228
+               C112 264 148 300 174 316 C166 320 160 322 160 322 Z"
+            fill="#F8BDD4" opacity=".85"/>
+      <path d="M124 200 C112 206 106 216 106 228" stroke="#fff" stroke-width="5"
+            stroke-linecap="round" fill="none" opacity=".65"/>
+
+      <ellipse cx="108" cy="268" rx="44" ry="26" fill="#A2A8AF" transform="rotate(-26 108 268)"/>
+      <ellipse cx="212" cy="268" rx="44" ry="26" fill="#A2A8AF" transform="rotate(26 212 268)"/>
+      <g stroke="#8B9299" stroke-width="1.8" stroke-linecap="round" opacity=".7">
+        <path d="M84 284 L74 296"/>
+        <path d="M96 290 L90 304"/>
+        <path d="M236 284 L246 296"/>
+        <path d="M224 290 L230 304"/>
+      </g>
+    </svg>
+
+    <p class="firma revela" data-tardanza="2">
+      te espero <span class="corazon" aria-hidden="true">💗</span>
+    </p>
+  </section>
+
+</main>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="velo" id="velo" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-hidden="true">
+  <div class="hoja" id="hoja">
+    <div class="hoja__asa" aria-hidden="true"></div>
+
+    <!-- Formulario -->
+    <div id="vista-form">
+      <h2 class="hoja__titulo" id="modal-titulo">Confirma tu asistencia</h2>
+      <p class="hoja__bajada">Solo se puede confirmar una vez desde este dispositivo.</p>
+
+      <form id="form-rsvp" novalidate>
+        <div class="campo">
+          <label for="f-nombre">Tu nombre completo</label>
+          <input type="text" id="f-nombre" name="nombre" autocomplete="name"
+                 placeholder="Ej. María Fernanda Ríos" maxlength="70" required>
+        </div>
+
+        <label class="check" for="f-acomp">
+          <input type="checkbox" id="f-acomp" name="acompanante">
+          <span>Voy con alguien más</span>
+        </label>
+
+        <div class="campo oculto" id="campo-acomp">
+          <label for="f-nombre-acomp">¿Cómo se llama?</label>
+          <input type="text" id="f-nombre-acomp" name="nombreAcompanante"
+                 placeholder="Nombre de tu acompañante" maxlength="70">
+        </div>
+
+        <div class="campo">
+          <label for="f-regalo">Qué le traes de regalo</label>
+          <select id="f-regalo" name="regalo">
+            <option value="Es sorpresa">Es sorpresa</option>
+            <option value="Perfume">Perfume</option>
+            <option value="Maquillaje">Maquillaje</option>
+            <option value="Cremitas">Cremitas</option>
+            <option value="Cosas de Crepúsculo">Cosas de Crepúsculo</option>
+            <option value="Otra cosa">Otra cosa</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="f-mensaje">Déjale un mensaje <span style="text-transform:none;letter-spacing:0">(opcional)</span></label>
+          <textarea id="f-mensaje" name="mensaje" maxlength="240"
+                    placeholder="Escríbele algo bonito..."></textarea>
+        </div>
+
+        <div id="aviso-form"></div>
+
+        <button type="submit" class="enviar" id="btn-enviar">Confirmar asistencia</button>
+        <button type="button" class="cerrar" data-cerrar>Ahora no</button>
+      </form>
+    </div>
+
+    <!-- Éxito / ya registrado -->
+    <div id="vista-listo" class="listo oculto">
+      <div class="listo__icono" aria-hidden="true">✓</div>
+      <h3 id="listo-titulo">¡Nos vemos el 28!</h3>
+      <p id="listo-texto"></p>
+      <button type="button" class="enviar" data-cerrar style="margin-top:26px">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="confeti" id="confeti" aria-hidden="true"></div>
+
+<script>
+/* ============================================================
+   1 · CONFIGURACIÓN — edita solo este bloque
+   ============================================================ */
+const CONFIG = {
+  // Pega aquí la URL /exec que te dio Apps Script
+  endpoint: 'https://script.google.com/macros/s/AKfycbxLEG_W7xnal0raS2bkDVZMcdT74K6xX627iy5DwMcvKirMVnFhllMVhNofsUk-4is/exec',
+
+  // Fecha y hora de la fiesta (formato ISO con zona horaria de Perú)
+  fechaFiesta: '2026-08-28T00:00:00-05:00',
+
+  claveDispositivo: 'brune17_device',
+  claveRegistro:    'brune17_registro'
+};
+
+/* ============================================================
+   2 · UTILIDADES
+   ============================================================ */
+const $ = (sel) => document.querySelector(sel);
+const configurado = () => CONFIG.endpoint.startsWith('https://');
+
+function idDispositivo(){
+  let id = null;
+  try { id = localStorage.getItem(CONFIG.claveDispositivo); } catch(e){}
+  if(!id){
+    id = 'dev_' + Date.now().toString(36) + '_' +
+         Math.random().toString(36).slice(2,10);
+    try { localStorage.setItem(CONFIG.claveDispositivo, id); } catch(e){}
+  }
+  return id;
+}
+
+function leerRegistroLocal(){
+  try { return JSON.parse(localStorage.getItem(CONFIG.claveRegistro) || 'null'); }
+  catch(e){ return null; }
+}
+
+function guardarRegistroLocal(datos){
+  try { localStorage.setItem(CONFIG.claveRegistro, JSON.stringify(datos)); }
+  catch(e){}
+}
+
+const DEVICE_ID = idDispositivo();
+
+/* ============================================================
+   3 · CUENTA REGRESIVA
+   ============================================================ */
+(function cuentaRegresiva(){
+  const meta = new Date(CONFIG.fechaFiesta).getTime();
+  const campos = {
+    dias:  $('#c-dias'),
+    horas: $('#c-horas'),
+    min:   $('#c-min'),
+    seg:   $('#c-seg')
+  };
+
+  function pintar(){
+    const resta = meta - Date.now();
+
+    if(resta <= 0){
+      campos.dias.textContent  = '00';
+      campos.horas.textContent = '00';
+      campos.min.textContent   = '00';
+      campos.seg.textContent   = '00';
+      const nota = document.querySelector('.nota');
+      if(nota) nota.textContent = '¡Hoy es la fiesta!';
+      clearInterval(reloj);
+      return;
+    }
+
+    const dd = Math.floor(resta / 86400000);
+    const hh = Math.floor(resta / 3600000) % 24;
+    const mm = Math.floor(resta / 60000) % 60;
+    const ss = Math.floor(resta / 1000) % 60;
+
+    campos.dias.textContent  = String(dd).padStart(2,'0');
+    campos.horas.textContent = String(hh).padStart(2,'0');
+    campos.min.textContent   = String(mm).padStart(2,'0');
+    campos.seg.textContent   = String(ss).padStart(2,'0');
+  }
+
+  pintar();
+  const reloj = setInterval(pintar, 1000);
+})();
+
+/* ============================================================
+   4 · REVELADO POR SCROLL
+   ============================================================ */
+(function revelar(){
+  const objetivos = document.querySelectorAll('.revela');
+
+  if(!('IntersectionObserver' in window)){
+    objetivos.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  const vigia = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+      if(entrada.isIntersecting){
+        entrada.target.classList.add('visible');
+        vigia.unobserve(entrada.target);
+      }
+    });
+  }, { threshold:.18, rootMargin:'0px 0px -8% 0px' });
+
+  objetivos.forEach(el => vigia.observe(el));
+})();
+
+/* ============================================================
+   5 · FOTOS FALTANTES → marcador visible
+   ============================================================ */
+document.querySelectorAll('.foto img').forEach(img => {
+  const listo = () => img.closest('.foto').classList.add('con-foto');
+  img.addEventListener('load', () => { if(img.naturalWidth > 0) listo(); });
+  if(img.complete && img.naturalWidth > 0) listo();
+});
+
+/* ============================================================
+   6 · MODAL
+   ============================================================ */
+const velo       = $('#velo');
+const btnRsvp    = $('#btn-rsvp');
+const vistaForm  = $('#vista-form');
+const vistaListo = $('#vista-listo');
+let ultimoFoco   = null;
+
+function abrirModal(){
+  ultimoFoco = document.activeElement;
+  velo.classList.add('abierto');
+  velo.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    const primero = vistaForm.classList.contains('oculto')
+      ? vistaListo.querySelector('button')
+      : $('#f-nombre');
+    if(primero) primero.focus();
+  }, 380);
+}
+
+function cerrarModal(){
+  velo.classList.remove('abierto');
+  velo.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  if(ultimoFoco) ultimoFoco.focus();
+}
+
+velo.addEventListener('click', (ev) => {
+  if(ev.target === velo) cerrarModal();
+});
+document.querySelectorAll('[data-cerrar]').forEach(b =>
+  b.addEventListener('click', cerrarModal)
+);
+document.addEventListener('keydown', (ev) => {
+  if(ev.key === 'Escape' && velo.classList.contains('abierto')) cerrarModal();
+});
+
+/* mostrar campo de acompañante */
+$('#f-acomp').addEventListener('change', function(){
+  $('#campo-acomp').classList.toggle('oculto', !this.checked);
+  if(this.checked) $('#f-nombre-acomp').focus();
+});
+
+/* ============================================================
+   7 · ESTADOS
+   ============================================================ */
+function mostrarAviso(html, tipo){
+  $('#aviso-form').innerHTML = html
+    ? '<div class="aviso aviso--' + tipo + '">' + html + '</div>'
+    : '';
+}
+
+function marcarConfirmado(registro){
+  btnRsvp.classList.add('burbuja--listo');
+  btnRsvp.setAttribute('aria-label','Ya confirmaste tu asistencia');
+  $('#btn-ayuda').textContent = 'ya confirmaste';
+
+  vistaForm.classList.add('oculto');
+  vistaListo.classList.remove('oculto');
+
+  const nombre = registro && registro.nombre ? registro.nombre : '';
+  $('#listo-titulo').textContent = nombre
+    ? '¡Ya estás en la lista, ' + nombre.split(' ')[0] + '!'
+    : '¡Ya estás en la lista!';
+
+  let texto = 'Este dispositivo ya confirmó asistencia.';
+  if(registro && registro.acompanante === 'Si' && registro.nombreAcompanante){
+    texto += ' Vienes con <b>' + escapar(registro.nombreAcompanante) + '</b>.';
+  }
+  texto += '<br>Te esperamos el <b>28 de agosto</b>.';
+  $('#listo-texto').innerHTML = texto;
+}
+
+function escapar(txt){
+  const d = document.createElement('div');
+  d.textContent = txt == null ? '' : String(txt);
+  return d.innerHTML;
+}
+
+/* ============================================================
+   8 · CONFETI
+   ============================================================ */
+function lanzarConfeti(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const capa = $('#confeti');
+  const tonos = ['#FF0080','#FFC800','#DEB0F4','#F33569','#FFFFFF','#7FCFA3','#EC7377'];
+
+  for(let i = 0; i < 70; i++){
+    const pieza = document.createElement('i');
+    pieza.style.left            = Math.random() * 100 + '%';
+    pieza.style.background      = tonos[Math.floor(Math.random() * tonos.length)];
+    pieza.style.animationDuration = (2.1 + Math.random() * 1.8) + 's';
+    pieza.style.animationDelay    = (Math.random() * .5) + 's';
+    pieza.style.transform       = 'rotate(' + (Math.random() * 360) + 'deg)';
+    if(Math.random() > .6) pieza.style.borderRadius = '50%';
+    capa.appendChild(pieza);
+    setTimeout(() => pieza.remove(), 4600);
+  }
+}
+
+/* ============================================================
+   9 · SINCRONIZAR AL CARGAR
+   ============================================================ */
+(async function sincronizar(){
+  const local = leerRegistroLocal();
+  if(local) marcarConfirmado(local);
+
+  if(!configurado()) return;
+
+  try{
+    const url = CONFIG.endpoint +
+      '?accion=estado&deviceId=' + encodeURIComponent(DEVICE_ID);
+    const res  = await fetch(url);
+    const data = await res.json();
+
+    if(data.ok && data.registrado){
+      guardarRegistroLocal(data.registro);
+      marcarConfirmado(data.registro);
+    }
+  }catch(e){
+    /* sin conexión: se conserva el estado local */
+  }
+})();
+
+/* ============================================================
+   10 · ENVÍO
+   ============================================================ */
+btnRsvp.addEventListener('click', abrirModal);
+
+$('#form-rsvp').addEventListener('submit', async function(ev){
+  ev.preventDefault();
+
+  const btn    = $('#btn-enviar');
+  const nombre = $('#f-nombre');
+
+  if(nombre.value.trim().length < 3){
+    nombre.setAttribute('aria-invalid','true');
+    nombre.focus();
+    mostrarAviso('Escribe tu nombre completo para poder registrarte.','error');
+    return;
+  }
+  nombre.removeAttribute('aria-invalid');
+
+  if(!configurado()){
+    mostrarAviso(
+      'Falta conectar la hoja de cálculo. Pega la URL de Apps Script en ' +
+      '<b>CONFIG.endpoint</b> dentro del archivo.','info');
+    return;
+  }
+
+  const datos = {
+    nombre:            nombre.value.trim(),
+    acompanante:       $('#f-acomp').checked,
+    nombreAcompanante: $('#f-nombre-acomp').value.trim(),
+    regalo:            $('#f-regalo').value,
+    mensaje:           $('#f-mensaje').value.trim(),
+    deviceId:          DEVICE_ID
+  };
+
+  btn.disabled    = true;
+  btn.textContent = 'Guardando...';
+  mostrarAviso('','info');
+
+  try{
+    const res = await fetch(CONFIG.endpoint, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify(datos)
+    });
+    const data = await res.json();
+
+    if(data.ok){
+      const guardado = {
+        nombre:            datos.nombre,
+        acompanante:       datos.acompanante ? 'Si' : 'No',
+        nombreAcompanante: datos.nombreAcompanante
+      };
+      guardarRegistroLocal(guardado);
+      marcarConfirmado(guardado);
+      lanzarConfeti();
+      return;
+    }
+
+    if(data.duplicado){
+      const reg = data.registro || { nombre: datos.nombre };
+      guardarRegistroLocal(reg);
+      marcarConfirmado(reg);
+      return;
+    }
+
+    mostrarAviso(escapar(data.error || 'No se pudo guardar. Intenta de nuevo.'),'error');
+
+  }catch(err){
+    mostrarAviso(
+      'No hay conexión con el servidor. Revisa tu internet e intenta de nuevo.','error');
+  }finally{
+    btn.disabled    = false;
+    btn.textContent = 'Confirmar asistencia';
+  }
+});
+</script>
+</body>
+</html>
