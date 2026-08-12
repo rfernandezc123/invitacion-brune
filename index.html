@@ -7,7 +7,7 @@
 <title>Brune cumple 17 · 28 de agosto</title>
 
 <meta property="og:title" content="Brune cumple 17">
-<meta property="og:description" content="28 de agosto. Confirma tu asistencia aquí.">
+<meta property="og:description" content="28 de agosto, 8:00 pm. Confirma tu asistencia aquí.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -247,6 +247,17 @@ input,select,textarea{font:inherit;color:inherit}
   text-transform:uppercase;
   color:var(--rojo);
   opacity:.92;
+}
+.hero__hora{
+  display:block;
+  margin-top:clamp(4px,1.4vw,7px);
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(15px,4.4vw,21px);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--rojo);
+  opacity:.8;
 }
 
 /* fotos recortadas */
@@ -816,6 +827,7 @@ input,select,textarea{font:inherit;color:inherit}
         <em>date:</em>
         <span class="hero__dia">28</span>
         <span class="hero__mes">agosto</span>
+        <span class="hero__hora">8:00 pm</span>
       </div>
     </div>
 
@@ -1095,7 +1107,7 @@ const CONFIG = {
   endpoint: 'https://script.google.com/macros/s/AKfycbxLEG_W7xnal0raS2bkDVZMcdT74K6xX627iy5DwMcvKirMVnFhllMVhNofsUk-4is/exec',
 
   // Fecha y hora de la fiesta (formato ISO con zona horaria de Perú)
-  fechaFiesta: '2026-08-28T00:00:00-05:00',
+  fechaFiesta: '2026-08-28T20:00:00-05:00',
 
   claveDispositivo: 'brune17_device',
   claveRegistro:    'brune17_registro'
@@ -1274,7 +1286,7 @@ function marcarConfirmado(registro){
   if(registro && registro.acompanante === 'Si' && registro.nombreAcompanante){
     texto += ' Vienes con <b>' + escapar(registro.nombreAcompanante) + '</b>.';
   }
-  texto += '<br>Te esperamos el <b>28 de agosto</b>.';
+  texto += '<br>Te esperamos el <b>28 de agosto a las 8:00 pm</b>.';
   $('#listo-texto').innerHTML = texto;
 }
 
