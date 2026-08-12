@@ -3,6 +3,7 @@
  * Google Apps Script Web App. Deploy: Execute as "Me", Access "Anyone".
  */
 
+// PIN de ejemplo: el real solo esta en el script desplegado en Google.
 const PIN_ADMIN = '2808';
 const SHEET_NAME = 'Invitados';
 const HEADERS = [
