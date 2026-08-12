@@ -61,3 +61,8 @@ nombres repetidos.
 El candado no es infalible: modo incógnito, otro navegador o borrar los
 datos del sitio generan un identificador nuevo. Para una invitación es
 suficiente.
+
+## Licencia
+
+Todos los derechos reservados. Contenido privado: el código y las fotos
+de `assets/` no pueden reutilizarse. Ver `LICENSE`.
